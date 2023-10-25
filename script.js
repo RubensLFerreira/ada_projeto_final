@@ -14,8 +14,14 @@ function editTask() {
   return;
 }
 
-function removeTask() {
-  return;
+function removeTask() { //Removendo tasks por Id
+  const taskRemovida = tasks.findIndex(task => task.id === taskId); //Encontrando ID da task para ser removida
+  if (taskRemovida !== -1){ //condição que encontra indice diferente de -1
+tasks.splice(taskRemovida, 1); //através do método splice remove do array - argumento (1) que remove a task
+console.log(`A tarefa ${task} foi removida com sucesso!`) ; 
+}else{ //caso não seja encontrada por ter sido removida ou é inexistente
+console.log(`A tarefa ${task} não foi encontrada :(`);
+}
 }
 
 function listTask() {
