@@ -7,21 +7,31 @@ const rl = readline.createInterface({ input, output });
 const tasks = [];
 
 function addTask(task) {
+  let id = 0;
   return;
 }
 
-function editTask() {
-  return;
+function editTask(idTask, newTask) {
+  if (typeof taskNumber !== "number" || isNaN(taskNumber)) {
+    const indexTask = tasks.findIndex((item) => item.id === parseInt(idTask));
+    tasks[indexTask].task = newTask;
+    console.log('\n', tasks, '\n');
+  } else {
+    console.log("Não foi possível editar a task!");
+  }
 }
 
-function removeTask() { //Removendo tasks por Id
-  const taskRemovida = tasks.findIndex(task => task.id === taskId); //Encontrando ID da task para ser removida
-  if (taskRemovida !== -1){ //condição que encontra indice diferente de -1
-tasks.splice(taskRemovida, 1); //através do método splice remove do array - argumento (1) que remove a task
-console.log(`A tarefa ${task} foi removida com sucesso!`) ; 
-}else{ //caso não seja encontrada por ter sido removida ou é inexistente
-console.log(`A tarefa ${task} não foi encontrada :(`);
-}
+function removeTask(taskId) {
+  // Removendo tasks por Id
+  const taskRemovida = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida
+  if (taskRemovida !== -1) {
+    // Condição que encontra indice diferente de -1
+    tasks.splice(taskRemovida, 1); // Através do método splice remove do array - argumento (1) que remove a task
+    console.log(`A tarefa ${taskId} foi removida com sucesso!`);
+  } else {
+    // Caso não seja encontrada por ter sido removida ou é inexistente
+    console.log(`A tarefa ${taskId} não foi encontrada :(`);
+  }
 }
 
 function listTask() {
@@ -32,26 +42,44 @@ function viewTask(task) {
   return;
 }
 
+function close() {
+  return rl.close();
+}
+
 function interation() {
   rl.question(
-    `Escolha uma das opções abaixo:\n 
-    1 - Adiconar tarefa\n 
-    2 - Editar tarefa\n 
-    3 - Remover tarefa\n 
-    4 - Listar tarefas\n 
-    5 - Visualizar tarefa\n 
+    `Escolha uma das opções abaixo: 
+    1 - Adiconar tarefa 
+    2 - Editar tarefa 
+    3 - Remover tarefa 
+    4 - Listar tarefas 
+    5 - Visualizar tarefa 
     6 - Encerrar\n`,
     (answer) => {
       if (answer === "1") {
         console.log("\nAdicione uma nova tarefa: ");
       } else if (answer === "2") {
-        console.log("\nDigite o ID da tarefas para editar: ");
+        rl.question("\nDigite o ID da tarefas para editar: ", (idTask) => {
+          rl.question("\nDigite a nova tarefa: ", (newTask) => {
+            editTask(idTask, newTask);
+            interation();
+          });
+        });
       } else if (answer === "3") {
-        console.log("\nDigite o ID da tarefas para remover: ");
+        rl.question(
+          "\nDigite o ID da tarefa que deseja remover: ",
+          (taskId) => {
+            removeTask(taskId);
+            interation();
+          }
+        );
       } else if (answer === "4") {
         console.log("\nDigite o ID da tarefas para visualizar: ");
       } else if (answer === "5") {
         console.log("\nDigite o ID da tarefas para visualizar: ");
+      } else if (answer === "6") {
+        console.log("Encerrando o programa!");
+        close();
       }
     }
   );
