@@ -12,12 +12,18 @@ function addTask(task) {
 }
 
 function editTask(idTask, newTask) {
-  if (typeof taskNumber !== "number" || isNaN(taskNumber)) {
-    const indexTask = tasks.findIndex((item) => item.id === parseInt(idTask));
-    tasks[indexTask].task = newTask;
-    console.log('\n', tasks, '\n');
-  } else {
-    console.log("Não foi possível editar a task!");
+  try {
+    const taskNumber = Number(idTask);
+
+    if (!isNaN(taskNumber)) {
+      const indexTask = tasks.findIndex((item) => item.id === taskNumber);
+      tasks[indexTask].task = newTask;
+      console.log(tasks);
+    } else {
+      console.log("\nErro! Digite um ID válido!\n");
+    }
+  } catch (error) {
+    console.error({ message: error });
   }
 }
 
