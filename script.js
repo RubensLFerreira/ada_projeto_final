@@ -20,7 +20,7 @@ function addTask() {
       }
   
       tasks.push(tarefa);
-      console.log(`Tarefa criada: {id: ${tarefa.id}, task: ${tarefa.task}}`);
+      console.log(`\nTarefa criada: {id: ${tarefa.id}, task: ${tarefa.task}}\n`);
       interation();
     });
 }
@@ -61,31 +61,28 @@ function removeTask(taskId) {
 }
 }
 
-
 function listTask() {
   return;
 }
 
-
-function viewTask(tasks, id) {
+function viewTask(id) {
   try {
-    if (isNaN(id)) {
+    const taskId = Number(id);
+    if (isNaN(taskId)) {
       throw new Error("\nErro! Digite um ID válido!\n")
     };
 
-    const taskBuscada = tasks.filter((task) => task.id === id);
+    const taskBuscada = tasks.filter((task) => task.id === taskId);
 
     if (!taskBuscada.length) {
       throw new Error("\nTarefa não localizada\n")
     };
 
-    return console.log(taskBuscada);
-
+    return console.log('\n',taskBuscada,'\n');
 
   } catch (error) {
     return console.error(error.message);
   }
-
 };
 
 //FUNÇÃO ENCERRAR PROGRAMA
@@ -130,7 +127,7 @@ function interation() {
       } else if (answer === "5") {
         //Lista apenas uma task por ID
         rl.question("\nDigite o ID da tarefas para visualizar: ", (idTask) => {
-          viewTask(tasks, idTask);
+          viewTask(idTask);
           interation()
         });
       } else if (answer === "6") {
