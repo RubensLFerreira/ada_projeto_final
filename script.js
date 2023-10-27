@@ -1,18 +1,18 @@
-const readline = require("node:readline"); //Imporat entrada de texto
-//Def. as entradas e saídas padrão.
+const readline = require("node:readline"); 
+
 const { stdin: input, stdout: output } = require("node:process");
-//Cria uma interface de leitura usando as entradas e saídas padrão.
+
 const rl = readline.createInterface({ input, output });
 
-const tasks = []; //array vazio p/ armazenamento das tasks.
+const tasks = []; 
 
-//FUNÇÃO P/ ADD UMA TASK
+
 function addTask(task) {
   let id = 0;
   return;
 }
 
-//FUNÇÃO P/ EDITAR UMA TASK COM BASE NO ID
+
 function editTask(idTask, newTask) {
   try {
     const taskNumber = Number(idTask);
@@ -44,12 +44,12 @@ function removeTask(taskId) {
   }
 }
 
-//FUNÇÃO P/ LISTAR TODAS AS TASKS
+
 function listTask() {
   return;
 }
 
-//FUNÇÃO P/ LISTAR APENAS UMA TASK POR ID 
+
 function viewTask(tasks, id) {
   try {
     if (isNaN(id)) {
@@ -76,7 +76,7 @@ function close() {
   return rl.close();
 }
 
-//FUNÇÃO PARA INTERAÇÃO COM O USUÁRIO
+
 function interation() {
   rl.question(
     `Escolha uma das opções abaixo: 
@@ -88,7 +88,7 @@ function interation() {
     6 - Encerrar\n`,
     (answer) => {
       if (answer === "1") {
-        //Add task/tarefa
+        //Add task
         console.log("\nAdicione uma nova tarefa: ");
       } else if (answer === "2") {
         //Edita task
@@ -125,4 +125,4 @@ function interation() {
   );
 }
 
-interation(); //Inicia interação, demonstra opções e armazena a resposta.
+interation(); 
