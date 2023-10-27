@@ -10,3 +10,9 @@ O projeto apresenta as seguintes funcionalidades:
 - Listar Todas as Tarefas: Exibe a lista completa de tarefas.
 - Visualizar Tarefa por ID: Permite a visualização de uma tarefa específica com base no seu ID.
 
+#### Contribuidores 🔻
+
+- [Rubens L Ferreira](https://github.com/RubensLFerreira)
+- [Muriloma](https://github.com/muriloma)
+- [Jamielly Reis](https://github.com/Jamielly)
+
