@@ -6,10 +6,23 @@ const rl = readline.createInterface({ input, output });
 
 const tasks = []; 
 
+var sequence = 1;
 
-function addTask(task) {
-  let id = 0;
-  return;
+
+function addTask() {
+  rl.question("Digite o nome da tarefa: ", (task) => {
+      let id = sequence;
+      sequence++;
+  
+      let tarefa = {
+        id: id,
+        task: task,
+      }
+  
+      tasks.push(tarefa);
+      console.log(`Tarefa criada: {id: ${tarefa.id}, task: ${tarefa.task}}`);
+      rl.prompt();
+    });
 }
 
 
@@ -93,7 +106,7 @@ function interation() {
     (answer) => {
       if (answer === "1") {
         //Add task
-        console.log("\nAdicione uma nova tarefa: ");
+        addTask();
       } else if (answer === "2") {
         //Edita task
         rl.question("\nDigite o ID da tarefas para editar: ", (idTask) => {
