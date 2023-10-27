@@ -21,7 +21,7 @@ function addTask() {
   
       tasks.push(tarefa);
       console.log(`Tarefa criada: {id: ${tarefa.id}, task: ${tarefa.task}}`);
-      rl.prompt();
+      interation();
     });
 }
 
