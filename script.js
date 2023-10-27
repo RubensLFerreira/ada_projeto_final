@@ -34,12 +34,12 @@ function removeTask(taskId) {
   const taskNumber = Number(task);
   
   if (!isNaN(taskNumber)) {
-    // Condição que encontra o indice da tarefa com base no ID
-    const taskNumber = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida
-    tasks.splice(indiceTask, 1); // Através do método splice remove do array - argumento (1) que remove a task
+    // Condição que encontra o indice da tarefa com base no ID.
+    const taskNumber = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida.
+    tasks.splice(indiceTask, 1); // Através do método splice remove do array - argumento (1) que remove a task.
     console.log(`A tarefa ${tasks} foi removida com sucesso!`);
   } else {
-    // Caso não seja encontrada por ter sido removida ou é inexistente
+    // Caso não seja encontrada por ter sido removida ou é inexistente.
     console.log(`A tarefa ${tasks} não foi encontrada`);
   }
 }
