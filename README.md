@@ -31,19 +31,19 @@
     <td>
       <a href="https://github.com/RubensLFerreira">
         <img src="https://avatars.githubusercontent.com/RubensLFerreira" width=100 />
-        <p>Felipe <br/>Marques</p>
+        <p>Rubens <br/>Lima</p>
       </a>
     </td>
     <td>
       <a href="https://github.com/muriloma">
         <img src="https://avatars.githubusercontent.com/muriloma" width=100 />
-        <p>Rubens <br/>Lima</p>
+        <p>Murilo</p>
       </a>
     </td>
     <td>
       <a href="https://github.com/Jamielly">
         <img src="https://avatars.githubusercontent.com/Jamielly" width=100 />
-        <p>Jhon <br/>Wesley</p>
+        <p>Jamielly <br/>Reis</p>
       </a>
     </td>
   </tr>
