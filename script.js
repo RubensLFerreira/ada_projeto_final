@@ -44,9 +44,26 @@ function listTask() {
   return;
 }
 
-function viewTask(task) {
-  return;
-}
+function viewTask(tasks, id) {
+  try {
+    if (isNaN(id)) {
+      throw new Error("\nErro! Digite um ID válido!\n")
+    };
+
+    const taskBuscada = tasks.filter((task) => task.id === id);
+
+    if (!taskBuscada.length) {
+      throw new Error("\nTarefa não localizada\n")
+    };
+
+    return console.log(taskBuscada);
+
+
+  } catch (error) {
+    return console.error(error.message);
+  }
+
+};
 
 function close() {
   return rl.close();
@@ -82,7 +99,10 @@ function interation() {
       } else if (answer === "4") {
         console.log("\nDigite o ID da tarefas para visualizar: ");
       } else if (answer === "5") {
-        console.log("\nDigite o ID da tarefas para visualizar: ");
+        rl.question("\nDigite o ID da tarefas para visualizar: ", (idTask) => {
+          viewTask(tasks, idTask);
+          interation()
+        });
       } else if (answer === "6") {
         console.log("Encerrando o programa!");
         close();
