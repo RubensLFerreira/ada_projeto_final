@@ -31,17 +31,21 @@ function editTask(idTask, newTask) {
 
 //FUNÇÃO P/ REMOVER UMA TASK COM BASE NO ID.
 function removeTask(taskId) {
-  const taskNumber = Number(task);
+  const taskNumber = Number(taskId);
   
   if (!isNaN(taskNumber)) {
     // Condição que encontra o indice da tarefa com base no ID.
-    const taskNumber = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida.
-    tasks.splice(indiceTask, 1); // Através do método splice remove do array - argumento (1) que remove a task.
-    console.log(`A tarefa ${tasks} foi removida com sucesso!`);
+    const taskRemovida = tasks.findIndex((task) => task.id === parseInt(taskNumber)); // Encontrando ID da task para ser removida.
+ if(!isNaN(taskRemovida !== -1)){
+    tasks.splice(taskRemovida, 1); // Através do método splice remove do array - argumento (1) que remove a task.
+    console.log(`A tarefa ${taskId} foi removida com sucesso!`);
   } else {
     // Caso não seja encontrada por ter sido removida ou é inexistente.
-    console.log(`A tarefa ${tasks} não foi encontrada`);
+    console.log(`A tarefa ${taskId} não foi encontrada`);
   }
+}else{
+  console.log("\n É necessário informar um ID válido! Por favor tente novamente.");
+}
 }
 
 
