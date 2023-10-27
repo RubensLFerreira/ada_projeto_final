@@ -46,6 +46,18 @@
         <p>Jamielly <br/>Reis</p>
       </a>
     </td>
+    <td>
+      <a href="https://github.com/ailezigvilar">
+        <img src="https://avatars.githubusercontent.com/ailezigvilar" width=100 />
+        <p>ailezigvilar</p>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/MatheusTerraAlves">
+        <img src="https://avatars.githubusercontent.com/MatheusTerraAlves" width=100 />
+        <p>Matheus <br/>Alves</p>
+      </a>
+    </td>
   </tr>
 </table>
 
