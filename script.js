@@ -1,16 +1,18 @@
-const readline = require("node:readline");
-
+const readline = require("node:readline"); //Imporat entrada de texto
+//Def. as entradas e saídas padrão.
 const { stdin: input, stdout: output } = require("node:process");
-
+//Cria uma interface de leitura usando as entradas e saídas padrão.
 const rl = readline.createInterface({ input, output });
 
-const tasks = [];
+const tasks = []; //array vazio p/ armazenamento das tasks.
 
+//FUNÇÃO P/ ADD UMA TASK
 function addTask(task) {
   let id = 0;
   return;
 }
 
+//FUNÇÃO P/ EDITAR UMA TASK COM BASE NO ID
 function editTask(idTask, newTask) {
   try {
     const taskNumber = Number(idTask);
@@ -27,23 +29,27 @@ function editTask(idTask, newTask) {
   }
 }
 
+//FUNÇÃO P/ REMOVER UMA TASK COM BASE NO ID.
 function removeTask(taskId) {
-  // Removendo tasks por Id
-  const taskRemovida = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida
-  if (taskRemovida !== -1) {
+  const taskNumber = Number(task);
+  
+  if (!isNaN(taskNumber)) {
     // Condição que encontra indice diferente de -1
-    tasks.splice(taskRemovida, 1); // Através do método splice remove do array - argumento (1) que remove a task
-    console.log(`A tarefa ${taskId} foi removida com sucesso!`);
+    const taskNumber = tasks.findIndex((task) => task.id === parseInt(taskId)); // Encontrando ID da task para ser removida
+    tasks.splice(indiceTask, 1); // Através do método splice remove do array - argumento (1) que remove a task
+    console.log(`A tarefa ${tasks} foi removida com sucesso!`);
   } else {
     // Caso não seja encontrada por ter sido removida ou é inexistente
-    console.log(`A tarefa ${taskId} não foi encontrada :(`);
+    console.log(`A tarefa ${tasks} não foi encontrada :(`);
   }
 }
 
+//FUNÇÃO P/ LISTAR TODAS AS TASKS
 function listTask() {
   return;
 }
 
+//FUNÇÃO P/ LISTAR APENAS UMA TASK POR ID 
 function viewTask(tasks, id) {
   try {
     if (isNaN(id)) {
@@ -65,10 +71,12 @@ function viewTask(tasks, id) {
 
 };
 
+//FUNÇÃO ENCERRAR PROGRAMA
 function close() {
   return rl.close();
 }
 
+//FUNÇÃO PARA INTERAÇÃO COM O USUÁRIO
 function interation() {
   rl.question(
     `Escolha uma das opções abaixo: 
@@ -80,8 +88,10 @@ function interation() {
     6 - Encerrar\n`,
     (answer) => {
       if (answer === "1") {
+        //Add task/tarefa
         console.log("\nAdicione uma nova tarefa: ");
       } else if (answer === "2") {
+        //Edita task
         rl.question("\nDigite o ID da tarefas para editar: ", (idTask) => {
           rl.question("\nDigite a nova tarefa: ", (newTask) => {
             editTask(idTask, newTask);
@@ -89,6 +99,7 @@ function interation() {
           });
         });
       } else if (answer === "3") {
+        //Remove task
         rl.question(
           "\nDigite o ID da tarefa que deseja remover: ",
           (taskId) => {
@@ -97,13 +108,16 @@ function interation() {
           }
         );
       } else if (answer === "4") {
+        //Listando todas tasks
         console.log("\nDigite o ID da tarefas para visualizar: ");
       } else if (answer === "5") {
+        //Lista apenas uma task por ID
         rl.question("\nDigite o ID da tarefas para visualizar: ", (idTask) => {
           viewTask(tasks, idTask);
           interation()
         });
       } else if (answer === "6") {
+        //Encerra
         console.log("Encerrando o programa!");
         close();
       }
@@ -111,4 +125,4 @@ function interation() {
   );
 }
 
-interation();
+interation(); //Inicia interação, demonstra opções e armazena a resposta.
