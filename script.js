@@ -63,6 +63,11 @@ function removeTask(taskId) {
 
 
 function listTask() {
+  console.log(`Lista de tarefas: `);
+  for (let key in tasks) {
+    console.log(tasks[key]); //Imprimindo o vetor tasks
+  }
+  console.log(`\n`);
   return;
 }
 
@@ -126,7 +131,8 @@ function interation() {
         );
       } else if (answer === "4") {
         //Listando todas tasks
-        console.log("\nDigite o ID da tarefas para visualizar: ");
+        listTask();//Chamando a função listTask
+        interation();
       } else if (answer === "5") {
         //Lista apenas uma task por ID
         rl.question("\nDigite o ID da tarefas para visualizar: ", (idTask) => {
