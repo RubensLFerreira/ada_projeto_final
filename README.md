@@ -21,10 +21,11 @@
 
 #### Contribuidores 🔻
 
+<!-- 
 - [Rubens L Ferreira](https://github.com/RubensLFerreira)
 - [Muriloma](https://github.com/muriloma)
 - [Jamielly Reis](https://github.com/Jamielly)
-
+-->
 <table align="center">
   <tr align="center">
     <td>
